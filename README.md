@@ -9,16 +9,20 @@ brew install 1password-cli
 
 2. Get a list of your 1Password Vaults
 ```bash
-op vaule list 
+op vault list 
 ```
-3. Secret references look like this, and can easily be grabbed from the 1Password UI
+## Secret References
+Secret references look like this, and can easily be grabbed from the 1Password UI
 
 ![img_2.png](images/img_2.png)
-4. Easily copy secret references from the UI
+
+## Easily copy secret references from the UI
 
 ![img_1.png](images/img_1.png)
 
-## Method 1: `op read`
+## Using 1Password CLI
+
+### Method 1: `op read`
 A convenience feature that doesn't mask the credential in any way. You can use op read with a secret reference to print the secret to stdout.
 
 Example 1:
@@ -46,7 +50,7 @@ docker login -u $(op read op://prod/docker/username) \
 -p $(op read op://prod/docker/password)
 ```
 
-## Method 2: `op run`
+### Method 2: `op run`
 You can set environment variables to secret references, then use op run to pass secrets to an application or script at runtime.
 
 For this example, go and select a credential from your 1Password
@@ -60,7 +64,7 @@ op run --env-file .env python3 script.py
 op run --no-masking --env-file .env python3 script.py
 ```
 
-## Method 3: `op inject`
+### Method 3: `op inject`
 You can use `op inject` to replace secret references in a script or file with the secrets they reference.
 
 ```bash
