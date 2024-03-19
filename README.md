@@ -53,7 +53,7 @@ docker login -u $(op read op://prod/docker/username) \
 ### Method 2: `op run`
 You can set environment variables to secret references, then use op run to pass secrets to an application or script at runtime.
 
-For this example, go and select a credential from your 1Password
+For this example, go and select a credential from your 1Password and add it to the `.env` file
 
 1. 1Password will conceal the credentials
 ```bash
